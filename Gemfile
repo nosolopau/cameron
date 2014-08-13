@@ -38,8 +38,7 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'gems'
-gem 'gemnasium-parser'
+gem 'digitalocean'
 gem 'devise', '>= 3.2.4'
 
 gem "therubyracer"
