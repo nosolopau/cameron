@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Provider:</strong>
+  <%= @server.provider_id %>
+</p>
+
+<p>
+  <strong>Ip address:</strong>
+  <%= @server.ip_address %>
+</p>
+
+<p>
+  <strong>Region:</strong>
+  <%= @server.region %>
+</p>
+
+<%= link_to 'Edit', edit_server_path(@server) %> |
+<%= link_to 'Back', servers_path %>
