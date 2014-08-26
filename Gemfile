@@ -38,7 +38,7 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'digitalocean'
+gem 'barge'
 gem 'devise', '>= 3.2.4'
 
 gem "therubyracer"

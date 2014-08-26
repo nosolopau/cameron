@@ -1,5 +1,3 @@
-class DigitalOceanServer
-  include Mongoid::Document
-
+class DigitalOceanServer < Server
   field :name, type: String
 end

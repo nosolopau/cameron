@@ -24,7 +24,7 @@ class ServersController < ApplicationController
   # POST /servers
   # POST /servers.json
   def create
-    @server = ServerFactory.create(server_params)
+    @server = ServerFactory.create_server(server_params, params[:api_key])
 
     respond_to do |format|
       if @server.save

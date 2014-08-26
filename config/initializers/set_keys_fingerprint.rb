@@ -1,0 +1,1 @@
+Rails.application.config.keys_fingerprint = 'ee:ca:b6:7c:a7:30:c2:5e:f4:98:2d:6e:af:bf:ce:da'
