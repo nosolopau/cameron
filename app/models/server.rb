@@ -1,6 +1,8 @@
 class Server
   include Mongoid::Document
 
+  has_and_belongs_to_many :roles
+
   field :provider_id, type: String
   field :ip_address, type: String
   field :region, type: String

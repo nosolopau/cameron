@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.0'
 
 gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
+gem 'mongoid_rails_migrations'
 gem 'bson_ext'
 
 # Use SCSS for stylesheets
