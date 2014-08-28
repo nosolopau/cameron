@@ -1,0 +1,19 @@
+<%= form_for(@provisioning) do |f| %>
+  <% if @provisioning.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@provisioning.errors.count, "error") %> prohibited this provisioning from being saved:</h2>
+
+      <ul>
+      <% @provisioning.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.collection_check_boxes(:role_ids, @roles, :id, :name) %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

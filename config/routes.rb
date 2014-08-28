@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :provisionings
+
   resources :servers
 
   root 'home#index'

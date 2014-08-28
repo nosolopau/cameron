@@ -1,6 +1,6 @@
 class ServerFactory
   def self.create_server(params, api_key)
-    fingerprint = Rails.application.config.keys_fingerprint
+    fingerprint = Rails.application.config.key_fingerprint
     barge = Barge::Client.new(access_token: api_key)
 
     # Search server rsa key in the account and create it if not found:

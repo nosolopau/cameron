@@ -1,0 +1,23 @@
+<h1>Listing provisionings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @provisionings.each do |provisioning| %>
+      <tr>
+        <td><%= link_to 'Show', provisioning %></td>
+        <td><%= link_to 'Edit', edit_provisioning_path(provisioning) %></td>
+        <td><%= link_to 'Destroy', provisioning, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Provisioning', new_provisioning_path %>
