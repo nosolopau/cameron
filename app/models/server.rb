@@ -3,10 +3,16 @@ class Server
   include Mongoid::Timestamps
 
   has_and_belongs_to_many :roles
+  has_many :provisionings
 
+  field :name, type: String
   field :provider_id, type: String
   field :ip_address, type: String
   field :region, type: String
+  field :memory, type: Integer
+  field :cpus, type: Integer
+  field :disk, type: Integer
+  field :status, type: String
 
   # This is needed to allow properly routing with inheritance :(
   def self.inherited(child)

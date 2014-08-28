@@ -1,5 +1,6 @@
 class ServersController < ApplicationController
   before_action :set_server, only: [:show, :edit, :update, :destroy]
+  before_action :set_roles, only: [:new, :create, :edit, :update]
 
   # GET /servers
   # GET /servers.json
@@ -69,6 +70,6 @@ class ServersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def server_params
-      params.require(:server).permit(:provider_id, :ip_address, :region)
+      params.require(:server).permit(:name, :region, role_ids: [])
     end
 end

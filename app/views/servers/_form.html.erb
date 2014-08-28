@@ -11,17 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= text_field_tag :client_id %>
-  </div>
-
+  <h2>Account</h2>
   <div class="field">
     <%= text_field_tag :api_key %>
   </div>
 
+  <h2>Associated roles</h2>
+  <div class="field">
+    <%= f.collection_check_boxes(:role_ids, @roles, :id, :name) %>
+  </div>
+
+  <h2>Server information</h2>
+  <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+  </div>
   <div class="field">
     <%= f.label :region %><br>
-    <%= f.text_field :region %>
+    <%= f.text_field :region, value: 'ams2' %>
   </div>
   <div class="actions">
     <%= f.submit %>
