@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+  <h2>Associated roles</h2>
   <%= f.collection_check_boxes(:role_ids, @roles, :id, :name) %>
 
   <div class="actions">
