@@ -1,1 +1,3 @@
-Rails.application.config.keys_fingerprint = 'ee:ca:b6:7c:a7:30:c2:5e:f4:98:2d:6e:af:bf:ce:da'
+key = SSHKey.new(Rails.root.join('config', 'keys', 'id_rsa').read)
+
+Rails.application.config.key_fingerprint = key.md5_fingerprint

@@ -41,6 +41,7 @@ gem 'spring',        group: :development
 
 gem 'barge'
 gem 'devise', '>= 3.2.4'
+gem 'sshkey'
 
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
