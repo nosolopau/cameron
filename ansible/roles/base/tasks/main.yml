@@ -1,0 +1,13 @@
+---
+
+- apt: pkg={{ item }} state=latest update-cache=yes
+  with_items:
+    - libreadline-dev
+    - libcurl4-openssl-dev
+    - build-essential
+    - libssl-dev
+    - zlib1g-dev
+    - tmux
+    - python-software-properties
+    - libcurl3
+    - libcurl3-gnutls

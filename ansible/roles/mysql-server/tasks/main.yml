@@ -1,0 +1,27 @@
+---
+
+- name: Add MariaDB key
+  apt_key: url=http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xCBCB082A1BB943DB state=present
+
+- name: Add MariaDB repository
+  apt_repository: repo='deb http://mirror.netcologne.de/mariadb/repo/5.5/ubuntu precise main'
+
+- name: Install MariaDB
+  apt: pkg={{ item }} update-cache=yes state=latest
+  with_items:
+    - mariadb-server
+    - mariadb-client
+    - libmariadbclient-dev
+
+- service: name=mysql state=started
+
+- name: Create MySQL configuration file
+  template: src=my.cnf.j2 dest=/etc/my.cnf
+  notify:
+    - restart mysql
+
+- name: Install Python MySQL module
+  apt: pkg=python-mysqldb state=present
+
+- name: Start MySQL Service
+  service: name=mysql state=started enabled=true
