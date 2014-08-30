@@ -19,6 +19,8 @@ config/keys/id_rsa.pub
 ## Environment normalisation:
 /.bundle
 /vendor/bundle
+ansible/*_hosts
+ansible/*_playbook.yml
 
 # these should all be checked in to normalise the environment:
 # Gemfile.lock, .ruby-version, .ruby-gemset

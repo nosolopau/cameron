@@ -1,6 +1,0 @@
----
-- hosts: a123
-  user: root
-  roles:
-    - base
-    - mysql-server
