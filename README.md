@@ -23,4 +23,4 @@ The server should have the following .ssh configuration (`~/.ssh/config`):
         Host *
             StrictHostKeyChecking no
             
-I know that is terrible, but is enough for me at this moment :). Perhaps the correct technique is http://serverfault.com/a/316100
+I know that it's terrible, but is enough for me at this moment :). Perhaps http://serverfault.com/a/316100 will be better.
