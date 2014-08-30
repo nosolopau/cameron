@@ -6,6 +6,8 @@ gem 'rails', '4.1.0'
 gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
 gem 'mongoid_rails_migrations'
 gem 'bson_ext'
+gem 'delayed_job_mongoid'
+gem 'daemons'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'

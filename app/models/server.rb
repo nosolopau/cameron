@@ -14,6 +14,21 @@ class Server
   field :disk, type: Integer
   field :status, type: String
 
+  def system_id
+    "srv_#{self.id}"
+  end
+
+  def user
+    'root'
+  end
+
+  def refresh!
+  end
+
+  def provision
+  end
+  # handle_asynchronously :provision
+
   # This is needed to allow properly routing with inheritance :(
   def self.inherited(child)
     child.instance_eval do
