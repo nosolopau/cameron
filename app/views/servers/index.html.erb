@@ -5,8 +5,10 @@
     <tr>
       <th>Type</th>
       <th>ID</th>
+      <th>Name</th>
       <th>IP address</th>
       <th>Region</th>
+      <th>Status</th>
       <th colspan="4"></th>
     </tr>
   </thead>
@@ -16,8 +18,10 @@
       <tr>
         <td><%= server.type %></td>
         <td><%= server.provider_id %></td>
+        <td><%= server.name %></td>
         <td><%= server.ip_address %></td>
         <td><%= server.region %></td>
+        <td><%= server.status %></td>
         <td><%= link_to 'Manage', server.manage_url %></td>
         <td><%= link_to 'Show', server %></td>
         <td><%= link_to 'Edit', edit_server_path(server) %></td>

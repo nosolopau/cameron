@@ -1,18 +1,14 @@
 module DigitalOcean
 
-  class Key < Resource
+  class KeysClient < ResourcesClient
 
-    def find_by(params)
-      if params[:fingerprint].present?
-        key = barge.key.show(params[:fingerprint])
-        key if key.success?
-      end
+    def find_by_fingerprint(fingerprint)
+      key = barge.key.show(fingerprint)
+      key.ssh_key if key.success?
     end
 
     def create(params)
-      params[:public_key] = `cat #{params[:public_key_file]}` if params[:public_key_file]
-
-      barge.key.create(params)
+      raise 'Cannot create key' unless barge.key.create(params).success?
     end
   end
 end

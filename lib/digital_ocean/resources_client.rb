@@ -1,5 +1,6 @@
 module DigitalOcean
-  class Resource
+
+  class ResourcesClient
     attr_accessor :barge
 
     def initialize(barge)

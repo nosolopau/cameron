@@ -1,5 +1,5 @@
 class DigitalOceanServer < Server
-  field :provider_access_token, type: String
+  field :access_token, type: String
 
   def type
     'Digital ocean'
@@ -9,7 +9,7 @@ class DigitalOceanServer < Server
     "https://cloud.digitalocean.com/droplets/#{provider_id}"
   end
 
-  def active?
+  def accessible?
     self.ip_address.present?
   end
 
@@ -18,9 +18,11 @@ class DigitalOceanServer < Server
   end
 
   def refresh!
-    barge = Barge::Client.new(access_token: self.provider_access_token)
+    digital_ocean = DigitalOcean::Client.new(access_token: self.access_token)
 
-    raise 'Network not assigned' unless barge.droplet.show(self.provider_id).droplet.networks.v4
-    self.update_attributes(ip_address: barge.droplet.show(self.provider_id).droplet.networks.v4.first.ip_address)
+    droplet = digital_ocean.servers.find_by_provider_id(self.provider_id)
+
+    update_attributes(provider_id: droplet.id, memory: droplet.memory, cpus: droplet.vcpus, disk: droplet.disk, status: droplet.status)
+    update_attributes(ip_address: droplet.networks.v4.first.ip_address) if droplet.networks.v4
   end
 end

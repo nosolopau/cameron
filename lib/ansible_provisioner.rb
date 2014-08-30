@@ -6,7 +6,7 @@ class AnsibleProvisioner
   end
 
   def provision
-    raise 'Server inactive' unless self.server.active?
+    raise 'Server inactive' unless self.server.accessible?
 
     self.generate_hosts
     self.generate_playbook
@@ -14,9 +14,10 @@ class AnsibleProvisioner
   end
 
   def run_ansible
-    command = "cd ansible && ansible-playbook -i ../tmp/#{self.hosts_file_name} ../tmp/#{self.playbook_file_name} --private-key=../config/keys/id_rsa -vvvv"
+    command = "ansible-playbook -i #{dir}/#{hosts_file_name} #{dir}/#{playbook_file_name} --private-key=config/keys/id_rsa -vvvv"
     logger.info command
     puts command
+
     `#{command}`
   end
 
@@ -55,6 +56,6 @@ class AnsibleProvisioner
   end
 
   def dir
-    'tmp'
+    'ansible'
   end
 end

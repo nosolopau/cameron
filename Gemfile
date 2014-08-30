@@ -9,6 +9,8 @@ gem 'bson_ext'
 gem 'delayed_job_mongoid'
 gem 'daemons'
 
+gem 'rubocop', require: false
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets

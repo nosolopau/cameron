@@ -15,3 +15,12 @@ Cameron
 You can use `Foreman` to run this application (there is a `Procfile` for development placed in the root directory):
 
         bundle exec foreman start
+        
+## Notes
+
+The server should have the following .ssh configuration (`~/.ssh/config`):
+
+        Host *
+            StrictHostKeyChecking no
+            
+I know that is terrible, but is enough for me at this moment :). Perhaps the correct technique is http://serverfault.com/a/316100
