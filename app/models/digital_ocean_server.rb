@@ -18,9 +18,9 @@ class DigitalOceanServer < Server
   end
 
   def refresh!
-    digital_ocean = DigitalOcean::Client.new(access_token: self.access_token)
+    digital_ocean = DigitalOcean::Client.new(access_token: access_token)
 
-    droplet = digital_ocean.servers.find_by_provider_id(self.provider_id)
+    droplet = digital_ocean.servers.find_by_provider_id(provider_id)
 
     update_attributes(provider_id: droplet.id, memory: droplet.memory, cpus: droplet.vcpus, disk: droplet.disk, status: droplet.status)
     update_attributes(ip_address: droplet.networks.v4.first.ip_address) if droplet.networks.v4

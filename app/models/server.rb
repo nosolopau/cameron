@@ -15,11 +15,20 @@ class Server
   field :status, type: String
 
   def system_id
-    "srv_#{self.id}"
+    "srv_#{id}"
   end
 
   def user
     'root'
+  end
+
+  def type
+  end
+
+  def manage_url
+  end
+
+  def accessible?
   end
 
   def refresh!

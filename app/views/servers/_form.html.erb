@@ -23,8 +23,16 @@
 
   <h2>Server information</h2>
   <div class="field">
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name, value: 'new server' %>
+  </div>
+  <div class="field">
+    <%= f.label :size %><br>
+    <%= f.text_field :size, value: '512mb' %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+      <%= f.text_field :image, value: '5588928' %>
   </div>
   <div class="field">
     <%= f.label :region %><br>

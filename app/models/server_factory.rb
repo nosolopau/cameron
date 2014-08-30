@@ -6,7 +6,7 @@ class ServerFactory
     digital_ocean.keys.create(name: 'Cameron', public_key: public_key) unless digital_ocean.keys.find_by_fingerprint(key_fingerprint)
 
     # Create server with keys
-    digital_ocean_server = digital_ocean.servers.create(params.merge(size: '512mb', image: '5588928', ssh_keys: [key_fingerprint]))
+    digital_ocean_server = digital_ocean.servers.create(params.merge(ssh_keys: [key_fingerprint]))
     if digital_ocean_server
       server = DigitalOceanServer.new(params.merge(access_token: access_token, provider_id: digital_ocean_server.id))
       server.refresh!
