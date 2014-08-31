@@ -7,7 +7,9 @@ module DigitalOcean
     end
 
     def create(params)
-      barge.droplet.create(params).droplet
+      new_server = barge.droplet.create(params)
+      raise 'Cannot create server' unless new_server.success?
+      new_server.droplet
     end
   end
 end

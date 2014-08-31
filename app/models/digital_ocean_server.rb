@@ -1,5 +1,6 @@
 class DigitalOceanServer < Server
   field :access_token, type: String
+  field :image, type: String
 
   def type
     'Digital ocean'
@@ -22,7 +23,7 @@ class DigitalOceanServer < Server
 
     droplet = digital_ocean.servers.find_by_provider_id(provider_id)
 
-    update_attributes(provider_id: droplet.id, memory: droplet.memory, cpus: droplet.vcpus, disk: droplet.disk, status: droplet.status)
+    update_attributes(provider_id: droplet.id, size: droplet.memory, cpus: droplet.vcpus, disk: droplet.disk, status: droplet.status)
     update_attributes(ip_address: droplet.networks.v4.first.ip_address) if droplet.networks.v4
   end
 end

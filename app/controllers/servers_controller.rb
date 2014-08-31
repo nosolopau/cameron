@@ -1,11 +1,23 @@
 class ServersController < ApplicationController
-  before_action :set_server, only: [:show, :edit, :update, :destroy]
+  before_action :set_server, only: [:show, :edit, :update, :destroy, :refresh, :provision]
   before_action :set_roles, only: [:new, :create, :edit, :update]
+
+  def provision
+    @server.provision
+
+    redirect_to :back
+  end
+
+  def refresh
+    @server.refresh!
+
+    redirect_to :back
+  end
 
   # GET /servers
   # GET /servers.json
   def index
-    @servers = Server.all
+    @servers = current_user.servers.all
   end
 
   # GET /servers/1
@@ -15,7 +27,7 @@ class ServersController < ApplicationController
 
   # GET /servers/new
   def new
-    @server = Server.new
+    @server = current_user.servers.new
   end
 
   # GET /servers/1/edit
@@ -26,6 +38,7 @@ class ServersController < ApplicationController
   # POST /servers.json
   def create
     @server = ServerFactory.create_server(server_params, params[:api_key])
+    @server.user = current_user
 
     respond_to do |format|
       if @server.save
@@ -65,11 +78,11 @@ class ServersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_server
-      @server = Server.find(params[:id])
+      @server = current_user.servers.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def server_params
-      params.require(:server).permit(:name, :region, role_ids: [])
+      params.require(:server).permit(:name, :region, :size, :image, role_ids: [])
     end
 end

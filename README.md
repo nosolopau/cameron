@@ -1,6 +1,9 @@
 Cameron
 =======
 
+[![Code Climate](https://codeclimate.com/github/nosolopau/cameron/badges/gpa.svg)](https://codeclimate.com/github/nosolopau/cameron)
+[![Dependency Status](https://gemnasium.com/nosolopau/cameron.svg)](https://gemnasium.com/nosolopau/cameron)
+
 ## Setup
 
 1. Generate a SSH key-pair.

@@ -24,7 +24,8 @@
   <h2>Server information</h2>
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name, value: 'new server' %>
+    <%= f.text_field :name, value: 'new-server' %>
+    <small>Only valid hostname characters are allowed. (a-z, A-Z, 0-9, . and -)</small>
   </div>
   <div class="field">
     <%= f.label :size %><br>

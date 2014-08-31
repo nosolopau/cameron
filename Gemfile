@@ -9,6 +9,8 @@ gem 'bson_ext'
 gem 'delayed_job_mongoid'
 gem 'daemons'
 
+gem 'devise'
+
 gem 'rubocop', require: false
 
 # Use SCSS for stylesheets
@@ -44,9 +46,6 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'barge'
-gem 'devise', '>= 3.2.4'
 gem 'sshkey'
 
-gem "therubyracer"
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-gem "twitter-bootstrap-rails"
+gem 'twitter-bootstrap-rails'

@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :provisionings
 
-  resources :servers
+  resources :servers do
+    member do
+      get :refresh
+      get :provision
+    end
+  end
 
   root 'home#index'
 

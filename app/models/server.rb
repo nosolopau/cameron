@@ -4,15 +4,16 @@ class Server
 
   has_and_belongs_to_many :roles
   has_many :provisionings
+  belongs_to :user
 
   field :name, type: String
   field :provider_id, type: String
   field :ip_address, type: String
   field :region, type: String
-  field :memory, type: Integer
   field :cpus, type: Integer
   field :disk, type: Integer
   field :status, type: String
+  field :size, type: String
 
   def system_id
     "srv_#{id}"
@@ -36,7 +37,7 @@ class Server
 
   def provision
   end
-  # handle_asynchronously :provision
+  handle_asynchronously :provision
 
   # This is needed to allow properly routing with inheritance :(
   def self.inherited(child)
